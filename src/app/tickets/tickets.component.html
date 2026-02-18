@@ -1,10 +1,17 @@
+<h1 class="app-title">🎫 Ticket Management System</h1>
+<p class="app-subtitle">Create, track and manage support tickets</p>
+
 <div class="container">
   <h2>Create Ticket</h2>
 
   <div class="form-grid">
-    <input type="email" [(ngModel)]="email" placeholder="Email Address">
-    <input type="text" [(ngModel)]="subject" placeholder="Subject">
-    <textarea [(ngModel)]="description" rows="4" placeholder="Describe the issue"></textarea>
+    <input type="email" [(ngModel)]="email" placeholder="Email Address" />
+    <input type="text" [(ngModel)]="subject" placeholder="Subject" />
+    <textarea
+      [(ngModel)]="description"
+      rows="4"
+      placeholder="Describe the issue"
+    ></textarea>
   </div>
 
   <button class="btn-primary-main" (click)="createTicket()">
@@ -31,18 +38,25 @@
 
         <tr *ngFor="let t of tickets">
           <td>
-            <strong>{{ t.requester.name }}</strong><br>
+            <strong>{{ t.requester.name }}</strong
+            ><br />
             <small>{{ t.requester.email }}</small>
           </td>
           <td>{{ t.subject }}</td>
           <td>
-            <span class="status-pill status-{{getStatusText(t.status).toLowerCase()}}">
+            <span
+              class="status-pill status-{{
+                getStatusText(t.status).toLowerCase()
+              }}"
+            >
               {{ getStatusText(t.status) }}
             </span>
           </td>
           <td>
             <button class="btn-sm edit" (click)="editTicket(t)">Edit</button>
-            <button class="btn-sm delete" (click)="deleteTicket(t.id)">Delete</button>
+            <button class="btn-sm delete" (click)="deleteTicket(t.id)">
+              Delete
+            </button>
           </td>
         </tr>
       </tbody>
@@ -54,13 +68,16 @@
     <div class="modal-content">
       <h3>Edit Ticket</h3>
 
-      <input [(ngModel)]="editSubject" placeholder="Subject">
-      <select [(ngModel)]="editStatus">
-        <option [ngValue]="2">Open</option>
-        <option [ngValue]="3">Pending</option>
-        <option [ngValue]="4">Resolved</option>
-        <option [ngValue]="5">Closed</option>
-      </select>
+      <div class="edit-fields">
+        <input [(ngModel)]="editSubject" placeholder="Subject" />
+
+        <select [(ngModel)]="editStatus">
+          <option [ngValue]="2">Open</option>
+          <option [ngValue]="3">Pending</option>
+          <option [ngValue]="4">Resolved</option>
+          <option [ngValue]="5">Closed</option>
+        </select>
+      </div>
 
       <div class="modal-actions">
         <button class="btn-sm" (click)="cancelEdit()">Cancel</button>

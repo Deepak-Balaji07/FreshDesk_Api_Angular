@@ -1,48 +1,74 @@
-/* ---------- Layout ---------- */
+/* ---------- Page Background ---------- */
+/* ---------- Full Page Dark Background ---------- */
+:host {
+  display: block;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #020617, #000000);
+  padding: 40px 20px 80px;
+  color: white;
+}
+
+
+/* ---------- App Heading ---------- */
+.app-title {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 36px;
+  font-weight: 800;
+  color: #22c55e;
+  text-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+}
+
+.app-subtitle {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #86efac;
+}
+
+/* ---------- Main Card ---------- */
 .container {
   max-width: 980px;
   margin: 40px auto;
   padding: 32px;
-  background: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #020617;
+  border-radius: 16px;
+  border: 2px solid #22c55e;
+  box-shadow:
+    0 0 25px rgba(34, 197, 94, 0.25),
+    inset 0 0 10px rgba(34, 197, 94, 0.15);
 }
 
+/* ---------- Headings ---------- */
 h2 {
-  margin-bottom: 20px;
-  color: #111827;
+  color: #22c55e;
 }
 
 /* ---------- Form ---------- */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-textarea {
-  grid-column: span 2;
-  resize: vertical;
+  gap: 22px;
+  margin-bottom: 26px;
 }
 
 input,
 textarea,
 select {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-  font-size: 14px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  padding: 14px 18px;
+  font-size: 15px;
+}
+
+
+input::placeholder,
+textarea::placeholder {
+  color: #4ade80;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.4);
 }
 
 /* ---------- Main Button ---------- */
@@ -51,22 +77,21 @@ select:focus {
   width: 100%;
   padding: 14px;
   font-size: 15px;
-  font-weight: 600;
-  color: #ffffff;
-  background: #4f46e5;
-  border: none;
-  border-radius: 12px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #020617;
+  border-radius: 14px;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s, box-shadow 0.1s;
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 
 .btn-primary-main:hover {
-  background: #4338ca;
-  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(34, 197, 94, 0.5);
 }
 
 .btn-primary-main:active {
-  transform: translateY(1px);
+  transform: scale(0.96);
 }
 
 /* ---------- Table ---------- */
@@ -80,135 +105,140 @@ table {
 }
 
 thead {
-  background: #f9fafb;
+  background: #020617;
 }
 
 th {
-  text-align: left;
-  padding: 14px;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #6b7280;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 18px 16px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
 }
 
 td {
-  padding: 16px 14px;
-  border-bottom: 1px solid #e5e7eb;
-  font-size: 14px;
-  color: #111827;
+  padding: 20px 16px;
+  vertical-align: top;
 }
+
 
 tbody tr:hover {
-  background: #f8fafc;
-}
-
-/* ---------- Empty State ---------- */
-.empty {
-  text-align: center;
-  padding: 32px;
-  color: #6b7280;
-  font-style: italic;
+  background: rgba(34, 197, 94, 0.08);
 }
 
 /* ---------- Status Pills ---------- */
-.status-pill {
-  display: inline-block;
-  padding: 4px 12px;
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: 999px;
-}
-
 .status-open {
-  background: #e0f2fe;
-  color: #0369a1;
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
 }
 
 .status-pending {
-  background: #fff7ed;
-  color: #c2410c;
+  background: rgba(250, 204, 21, 0.2);
+  color: #facc15;
 }
 
 .status-resolved {
-  background: #dcfce7;
-  color: #047857;
+  background: rgba(34, 197, 94, 0.3);
+  color: #4ade80;
 }
 
 .status-closed {
-  background: #f1f5f9;
-  color: #475569;
+  background: rgba(148, 163, 184, 0.2);
+  color: #cbd5f5;
 }
 
 /* ---------- Action Buttons ---------- */
 .btn-sm {
   padding: 6px 14px;
-  font-size: 13px;
   border-radius: 8px;
-  border: 1px solid #d1d5db;
-  background: #ffffff;
-  cursor: pointer;
-  transition: all 0.2s;
+  background: transparent;
+  border: 1px solid #22c55e;
+  color: #22c55e;
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 
-.btn-sm.edit:hover {
-  border-color: #4f46e5;
-  color: #4f46e5;
-  background: #eef2ff;
+.btn-sm:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
+}
+
+.btn-sm.delete {
+  border-color: #ef4444;
+  color: #ef4444;
 }
 
 .btn-sm.delete:hover {
-  border-color: #ef4444;
-  color: #ef4444;
-  background: #fef2f2;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
 }
 
 .btn-sm.save {
-  background: #4f46e5;
-  color: white;
-  border: none;
-}
-
-.btn-sm.save:hover {
-  background: #4338ca;
+  background: #22c55e;
+  color: #020617;
 }
 
 /* ---------- Modal ---------- */
+/* ---------- Edit Ticket Modal Improvements ---------- */
+
+.modal-content {
+  width: 420px;               /* 🔥 make card bigger */
+  padding: 26px;              /* 🔥 breathing space */
+}
+
+/* Description + Status layout */
+.edit-fields {
+  display: flex;
+  gap: 14px;                  /* 🔥 space between input & select */
+  margin: 20px 0;
+}
+
+/* Subject input */
+.edit-fields input {
+  flex: 2;
+  border-radius: 14px;        /* 🔥 curved edges */
+  border: 2px solid #22c55e;
+  background: #ffffff;
+  color: #020617;
+}
+
+/* Status dropdown */
+.edit-fields select {
+  flex: 1;
+  border-radius: 14px;        /* 🔥 curved edges */
+  border: 2px solid #22c55e;
+  background: #ffffff;
+  color: #020617;
+  cursor: pointer;
+}
+
+/* Modal action buttons spacing */
+.modal-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+
 .modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(17, 24, 39, 0.6);
-  backdrop-filter: blur(4px);
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 99999;
 }
 
-.modal-content {
-  background: #ffffff;
-  padding: 28px;
-  width: 100%;
-  max-width: 460px;
-  border-radius: 16px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-}
 
-.modal-content h3 {
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
-.modal-content input,
-.modal-content textarea,
-.modal-content select {
-  margin-bottom: 12px;
-}
-
-.modal-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 16px;
+@keyframes pop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
