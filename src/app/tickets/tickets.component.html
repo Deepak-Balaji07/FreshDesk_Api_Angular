@@ -1,0 +1,71 @@
+<div class="container">
+  <h2>Create Ticket</h2>
+
+  <div class="form-grid">
+    <input type="email" [(ngModel)]="email" placeholder="Email Address">
+    <input type="text" [(ngModel)]="subject" placeholder="Subject">
+    <textarea [(ngModel)]="description" rows="4" placeholder="Describe the issue"></textarea>
+  </div>
+
+  <button class="btn-primary-main" (click)="createTicket()">
+    Create Ticket
+  </button>
+
+  <div class="table-wrapper">
+    <h2>Tickets</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Requester</th>
+          <th>Subject</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngIf="tickets.length === 0">
+          <td colspan="4" class="empty">No tickets created</td>
+        </tr>
+
+        <tr *ngFor="let t of tickets">
+          <td>
+            <strong>{{ t.requester.name }}</strong><br>
+            <small>{{ t.requester.email }}</small>
+          </td>
+          <td>{{ t.subject }}</td>
+          <td>
+            <span class="status-pill status-{{getStatusText(t.status).toLowerCase()}}">
+              {{ getStatusText(t.status) }}
+            </span>
+          </td>
+          <td>
+            <button class="btn-sm edit" (click)="editTicket(t)">Edit</button>
+            <button class="btn-sm delete" (click)="deleteTicket(t.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" *ngIf="editingTicketId">
+    <div class="modal-content">
+      <h3>Edit Ticket</h3>
+
+      <input [(ngModel)]="editSubject" placeholder="Subject">
+      <select [(ngModel)]="editStatus">
+        <option [ngValue]="2">Open</option>
+        <option [ngValue]="3">Pending</option>
+        <option [ngValue]="4">Resolved</option>
+        <option [ngValue]="5">Closed</option>
+      </select>
+
+      <div class="modal-actions">
+        <button class="btn-sm" (click)="cancelEdit()">Cancel</button>
+        <button class="btn-sm save" (click)="updateTicket()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

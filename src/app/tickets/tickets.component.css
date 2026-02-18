@@ -1,0 +1,214 @@
+/* ---------- Layout ---------- */
+.container {
+  max-width: 980px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+/* ---------- Form ---------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+textarea {
+  grid-column: span 2;
+  resize: vertical;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+}
+
+/* ---------- Main Button ---------- */
+.btn-primary-main {
+  margin-top: 18px;
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #4f46e5;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.1s;
+}
+
+.btn-primary-main:hover {
+  background: #4338ca;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.35);
+}
+
+.btn-primary-main:active {
+  transform: translateY(1px);
+}
+
+/* ---------- Table ---------- */
+.table-wrapper {
+  margin-top: 48px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f9fafb;
+}
+
+th {
+  text-align: left;
+  padding: 14px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+td {
+  padding: 16px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+  color: #111827;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* ---------- Empty State ---------- */
+.empty {
+  text-align: center;
+  padding: 32px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* ---------- Status Pills ---------- */
+.status-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+.status-open {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.status-pending {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.status-resolved {
+  background: #dcfce7;
+  color: #047857;
+}
+
+.status-closed {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+/* ---------- Action Buttons ---------- */
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-sm.edit:hover {
+  border-color: #4f46e5;
+  color: #4f46e5;
+  background: #eef2ff;
+}
+
+.btn-sm.delete:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+  background: #fef2f2;
+}
+
+.btn-sm.save {
+  background: #4f46e5;
+  color: white;
+  border: none;
+}
+
+.btn-sm.save:hover {
+  background: #4338ca;
+}
+
+/* ---------- Modal ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 28px;
+  width: 100%;
+  max-width: 460px;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  margin-bottom: 12px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 16px;
+}
